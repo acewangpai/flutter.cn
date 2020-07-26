@@ -1,32 +1,38 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart' show debugPaintSizeEnabled;
 
-void main() {
+void main() 
+{
   debugPaintSizeEnabled = false; // Set to true for visual layout
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatelessWidget 
+{
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) 
+  {
     return MaterialApp(
       title: 'Flutter layout demo',
       home: Scaffold(
         appBar: AppBar(
           title: Text('Flutter layout demo'),
         ),
-        body: Center(child: _buildImageColumn()),
+        body: Center(
+          child: _buildImageColumn()
+        ),
       ),
     );
   }
 
   // #docregion column
-  Widget _buildImageColumn() => Container(
+  Widget _buildImageColumn() => 
+    Container(
         decoration: BoxDecoration(
           color: Colors.black26,
         ),
         child: Column(
-          children: [
+          children: <Widget>[
             _buildImageRow(1),
             _buildImageRow(3),
           ],
@@ -35,7 +41,8 @@ class MyApp extends StatelessWidget {
   // #enddocregion column
 
   // #docregion row
-  Widget _buildDecoratedImage(int imageIndex) => Expanded(
+  Widget _buildDecoratedImage(int imageIndex) => 
+    Expanded(
         child: Container(
           decoration: BoxDecoration(
             border: Border.all(width: 10, color: Colors.black38),
@@ -46,8 +53,9 @@ class MyApp extends StatelessWidget {
         ),
       );
 
-  Widget _buildImageRow(int imageIndex) => Row(
-        children: [
+  Widget _buildImageRow(int imageIndex) => 
+    Row(
+        children: <Widget>[
           _buildDecoratedImage(imageIndex),
           _buildDecoratedImage(imageIndex + 1),
         ],
